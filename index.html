@@ -187,20 +187,16 @@
     </footer>
 
     <script>
-        // DISCORD OAUTH CONFIG
-        const CLIENT_ID = '1553413012579160074'; // <-- Discord Botunun Application Client ID'sini yazın
+        // DISCORD OAUTH CONFIG (Client ID Entegre Edildi)
+        const CLIENT_ID = '1553413012579160074';
         const REDIRECT_URI = window.location.origin + window.location.pathname;
 
         function redirectToDiscordLogin() {
-            if (CLIENT_ID === '1553413012579160074') {
-                alert("Lütfen koddaki CLIENT_ID alanına Discord Bot Client ID'nizi yazın!");
-                return;
-            }
             const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+email`;
             window.location.href = authUrl;
         }
 
-        // DISCORD GİRİŞİNİ KONTROL ET (Implicit Grant Flow)
+        // DISCORD GİRİŞİNİ KONTROL ET
         window.onload = function() {
             const fragment = new URLSearchParams(window.location.hash.slice(1));
             const accessToken = fragment.get('access_token');
