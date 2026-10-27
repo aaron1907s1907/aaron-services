@@ -27,7 +27,7 @@
 
         .hero-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; text-align: center; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto 20px auto; }
-        .stat-card { background: #151b28; border: 1px solid #1c2436; padding: 28px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .stat-card { background: #151b28; border: 1px solid #1c2436; padding: 28px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .stat-number { font-size: 40px; font-weight: 800; color: #38bdf8; margin-bottom: 6px; }
         .stat-label { font-size: 14px; color: #94a3b8; font-weight: 600; }
 
@@ -68,4 +68,190 @@
             <div class="logo-svg">
                 <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M50 15L85 85H70L50 45L30 85H15L50 15Z" fill="#38BDF8"/>
-                    <path d="M35 65H
+                    <path d="M35 65H65" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div>
+                <div class="brand-title">AARON <span>Services</span></div>
+                <div class="brand-sub">Hızlı, güvenilir ve profesyonel Discord çözümleri.</div>
+            </div>
+        </div>
+        
+        <div class="nav-actions">
+            <button onclick="toggleCartModal()" class="btn-cart">
+                <i class="fa-solid fa-cart-shopping"></i> Sepetim <span id="cart-count" class="cart-badge">0</span>
+            </button>
+            <a href="https://discord.gg/SENIN_SUNUCU_DAVETIN" target="_blank" class="btn-discord">
+                <i class="fa-brands fa-discord"></i> Discord Sunucusu
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO / İSTATİSTİKLER -->
+    <section class="hero-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="online-members">1.208</div>
+                <div class="stat-label">Çevrimiçi Üye</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">787</div>
+                <div class="stat-label">Toplam Müşteri</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Aaron Personel</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKETLERİMİZ -->
+    <section class="pricing-section">
+        <h2 class="section-title">Paketlerimiz</h2>
+        <div class="tabs-wrapper">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="setPeriod('1', this)">Aylık</button>
+                <button class="tab-btn" onclick="setPeriod('3', this)">3 Aylık</button>
+                <button class="tab-btn" onclick="setPeriod('6', this)">6 Aylık</button>
+                <button class="tab-btn" onclick="setPeriod('12', this)">Yıllık</button>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div>
+                    <div class="card-title">Discord Full Pack</div>
+                    <div class="card-desc">Tam kapsamlı Discord sunucu yönetimi</div>
+                    <div class="price-tag"><span id="price-full">1.300,00</span> <span class="price-period" id="period-full">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Moderasyon & Guard</li>
+                        <li><i class="fa-solid fa-check"></i> Sunucu Otomatik Backup (Yedekleme)</li>
+                        <li><i class="fa-solid fa-check"></i> BlackList Sunucu Kontrolü</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Discord Full Pack', 1300)" class="btn-add">Sepete Ekle</button>
+            </div>
+
+            <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
+                <div>
+                    <div class="card-title">Aaron Grafik Paketi</div>
+                    <div class="card-desc">Özel tasarım ve görsel branding</div>
+                    <div class="price-tag"><span id="price-graphic">350,00</span> <span class="price-period" id="period-graphic">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Özel Logo & Banner Tasarımları</li>
+                        <li><i class="fa-solid fa-check"></i> Hareketli GIF Embed Başlıkları</li>
+                        <li><i class="fa-solid fa-check"></i> Discord Sunucu Şablon Tasarımı</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Aaron Grafik Paketi', 350)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
+            </div>
+
+            <div class="price-card">
+                <div>
+                    <div class="card-title">Ticket & Destek Pack</div>
+                    <div class="card-desc">Destek bileti ve loglama altyapısı</div>
+                    <div class="price-tag"><span id="price-ticket">300,00</span> <span class="price-period" id="period-ticket">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Ticket Altyapısı (v14)</li>
+                        <li><i class="fa-solid fa-check"></i> Kategori & Otomatik Transcript</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Ticket & Destek Pack', 300)" class="btn-add">Sepete Ekle</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPET MODAL -->
+    <div id="cart-modal" class="modal-overlay hidden">
+        <div class="cart-modal">
+            <button onclick="toggleCartModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; color: #94a3b8; font-size: 20px; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 12px;"><i class="fa-solid fa-cart-shopping text-sky-400"></i> Sepetim</h3>
+            <p style="color: #94a3b8; font-size: 11px; margin-bottom: 16px;">Ödemeler IBAN ile yapılmaktadır. Siparişi tamamla dediğinizde Discord sunucumuza yönlendirileceksiniz.</p>
+            
+            <div id="cart-items-container" style="max-height: 200px; overflow-y: auto; margin-bottom: 20px;">
+                <p style="color: #94a3b8; text-align: center; font-size: 13px; padding: 20px;">Sepetiniz boş.</p>
+            </div>
+
+            <div style="border-top: 1px solid #1c2436; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <span style="color: #94a3b8; font-weight: 700; font-size: 14px;">Toplam Tutar:</span>
+                <span id="cart-total" style="color: #38bdf8; font-weight: 800; font-size: 20px;">0,00 TL</span>
+            </div>
+
+            <button onclick="checkoutToDiscord()" class="btn-add" style="background: #5865f2; color: #ffffff; text-align: center; border: none;"><i class="fa-brands fa-discord"></i> Discord Üzerinden Siparişi Tamamla</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>© 2026 AARON Services & Network. Tüm hakları saklıdır.</div>
+        <div style="display: flex; gap: 16px;">
+            <span>Kullanım Şartları</span>
+            <span>Gizlilik Politikası</span>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        let currentMultiplier = 1;
+
+        function addToCart(name, basePrice) {
+            let price = basePrice * currentMultiplier;
+            cart.push({ name, price });
+            updateCartUI();
+            alert(`${name} sepete eklendi!`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items-container');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="color: #94a3b8; text-align: center; font-size: 13px; padding: 20px;">Sepetiniz boş.</p>`;
+                document.getElementById('cart-total').innerText = `0,00 TL`;
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="cart-item">
+                        <div>
+                            <div style="color: #fff; font-weight: 700; font-size: 13px;">${item.name}</div>
+                            <div style="color: #38bdf8; font-size: 12px; font-weight: 600;">${item.price.toLocaleString('tr-TR')},00 TL</div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="background: rgba(239, 68, 68, 0.2); color: #ef4444; border: none; padding: 6px 10px; border-radius: 8px; cursor: pointer;"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('cart-total').innerText = total.toLocaleString('tr-TR') + ',00 TL';
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function checkoutToDiscord() {
+            if (cart.length === 0) return alert("Sepetiniz boş!");
+            window.location.href = "https://discord.gg/SENIN_SUNUCU_DAVETIN";
+        }
+
+        function setPeriod(months, el) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            el.classList.add('active');
+            currentMultiplier = parseInt(months);
+            
+            document.getElementById('price-full').innerText = (1300 * currentMultiplier).toLocaleString('tr-TR') + ',00';
+            document.getElementById('price-graphic').innerText = (350 * currentMultiplier).toLocaleString('tr-TR') + ',00';
+            document.getElementById('price-ticket').innerText = (300 * currentMultiplier).toLocaleString('tr-TR') + ',00';
+        }
+    </script>
+</body>
+</html>
