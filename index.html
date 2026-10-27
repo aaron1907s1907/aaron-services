@@ -37,11 +37,11 @@
         .tab-btn.active { background: #38bdf8; color: #0d111a; font-weight: 700; }
 
         .pricing-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
         .price-card { background: #151b28; border: 1px solid #1c2436; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; }
         .price-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-4px); }
         .card-title { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
-        .card-desc { font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+        .card-desc { font-size: 12px; color: #94a3b8; margin-bottom: 20px; min-height: 32px; }
         .price-tag { font-size: 28px; font-weight: 800; color: #38bdf8; margin-bottom: 24px; }
         .price-period { font-size: 14px; font-weight: 400; color: #94a3b8; }
         .feature-list { list-style: none; margin-bottom: 28px; }
@@ -80,7 +80,7 @@
             <button onclick="toggleCartModal()" class="btn-cart">
                 <i class="fa-solid fa-cart-shopping"></i> Sepetim <span id="cart-count" class="cart-badge">0</span>
             </button>
-            <a href="https://discord.gg/https://discord.com/invite/A9sYSWb9Fm" target="_blank" class="btn-discord">
+            <a href="https://discord.com/invite/A9sYSWb9Fm" target="_blank" class="btn-discord">
                 <i class="fa-brands fa-discord"></i> Discord Sunucusu
             </a>
         </div>
@@ -94,7 +94,7 @@
 
     <!-- PAKETLERİMİZ -->
     <section class="pricing-section">
-        <h2 class="section-title">Paketlerimiz</h2>
+        <h2 class="section-title">Hizmetlerimiz & Paketler</h2>
         <div class="tabs-wrapper">
             <div class="tabs">
                 <button class="tab-btn active" onclick="setPeriod('1', this)">Aylık</button>
@@ -105,20 +105,87 @@
         </div>
 
         <div class="pricing-grid">
+            <!-- Moderasyon -->
             <div class="price-card">
                 <div>
-                    <div class="card-title">Discord Full Pack</div>
-                    <div class="card-desc">Tam kapsamlı Discord sunucu yönetimi</div>
-                    <div class="price-tag"><span id="price-full">1.300,00</span> <span class="price-period" id="period-full">TL / ay</span></div>
+                    <div class="card-title">Moderasyon</div>
+                    <div class="card-desc">Fivem, Garry's Mod, Public vb. Sunucular için</div>
+                    <div class="price-tag"><span id="price-mod">550,00</span> <span class="price-period" id="period-mod">TL / ay</span></div>
                     <ul class="feature-list">
-                        <li><i class="fa-solid fa-check"></i> Gelişmiş Moderasyon & Guard</li>
-                        <li><i class="fa-solid fa-check"></i> Sunucu Otomatik Backup (Yedekleme)</li>
-                        <li><i class="fa-solid fa-check"></i> BlackList Sunucu Kontrolü</li>
+                        <li><i class="fa-solid fa-check"></i> Ticket Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Kayıt Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Ekip Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Uyarı Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Log Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Ceza ve Log sistemleri</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('Discord Full Pack', 1300)" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Moderasyon', 550)" class="btn-add">Sepete Ekle</button>
             </div>
 
+            <!-- Guard -->
+            <div class="price-card">
+                <div>
+                    <div class="card-title">Guard</div>
+                    <div class="card-desc">Discord Sunucunuz için Gelişmiş koruma ve backup sistemi</div>
+                    <div class="price-tag"><span id="price-guard">450,00</span> <span class="price-period" id="period-guard">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Koruma Sistemleri</li>
+                        <li><i class="fa-solid fa-check"></i> Ayarlanabilir güvenli listeler</li>
+                        <li><i class="fa-solid fa-check"></i> Backup sistemleri</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Guard', 450)" class="btn-add">Sepete Ekle</button>
+            </div>
+
+            <!-- Ticket -->
+            <div class="price-card">
+                <div>
+                    <div class="card-title">Ticket</div>
+                    <div class="card-desc">Destek bileti sistemi</div>
+                    <div class="price-tag"><span id="price-ticket">300,00</span> <span class="price-period" id="period-ticket">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Ticket Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Kategori Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Transcript Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Log Sistemi</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Ticket', 300)" class="btn-add">Sepete Ekle</button>
+            </div>
+
+            <!-- Ekip Sistemi -->
+            <div class="price-card">
+                <div>
+                    <div class="card-title">Ekip Sistemi</div>
+                    <div class="card-desc">Aile ve Çete ekipleri için en ideal çözüm</div>
+                    <div class="price-tag"><span id="price-team">350,00</span> <span class="price-period" id="period-team">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Etkinlik sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Aktiflik sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Başvuru ve Ticket sistemleri</li>
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Loglar</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Ekip Sistemi', 350)" class="btn-add">Sepete Ekle</button>
+            </div>
+
+            <!-- Mesai Sistemi -->
+            <div class="price-card">
+                <div>
+                    <div class="card-title">Mesai Sistemi</div>
+                    <div class="card-desc">Legal ekipler için en ideal çözüm</div>
+                    <div class="price-tag"><span id="price-shift">350,00</span> <span class="price-period" id="period-shift">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Mesai Sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Başvuru ve Ticket sistemi</li>
+                        <li><i class="fa-solid fa-check"></i> Gelişmiş Loglar</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Mesai Sistemi', 350)" class="btn-add">Sepete Ekle</button>
+            </div>
+
+            <!-- Aaron Grafik Paketi -->
             <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
                 <div>
                     <div class="card-title">Aaron Grafik Paketi</div>
@@ -131,19 +198,6 @@
                     </ul>
                 </div>
                 <button onclick="addToCart('Aaron Grafik Paketi', 350)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
-            </div>
-
-            <div class="price-card">
-                <div>
-                    <div class="card-title">Ticket & Destek Pack</div>
-                    <div class="card-desc">Destek bileti ve loglama altyapısı</div>
-                    <div class="price-tag"><span id="price-ticket">300,00</span> <span class="price-period" id="period-ticket">TL / ay</span></div>
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-check"></i> Gelişmiş Ticket Altyapısı (v14)</li>
-                        <li><i class="fa-solid fa-check"></i> Kategori & Otomatik Transcript</li>
-                    </ul>
-                </div>
-                <button onclick="addToCart('Ticket & Destek Pack', 300)" class="btn-add">Sepete Ekle</button>
             </div>
         </div>
     </section>
@@ -227,7 +281,7 @@
 
         function checkoutToDiscord() {
             if (cart.length === 0) return alert("Sepetiniz boş!");
-            window.location.href = "https://discord.gg/https://discord.com/invite/A9sYSWb9Fm";
+            window.location.href = "https://discord.com/invite/A9sYSWb9Fm";
         }
 
         function setPeriod(months, el) {
@@ -235,9 +289,26 @@
             el.classList.add('active');
             currentMultiplier = parseInt(months);
             
-            document.getElementById('price-full').innerText = (1300 * currentMultiplier).toLocaleString('tr-TR') + ',00';
-            document.getElementById('price-graphic').innerText = (350 * currentMultiplier).toLocaleString('tr-TR') + ',00';
-            document.getElementById('price-ticket').innerText = (300 * currentMultiplier).toLocaleString('tr-TR') + ',00';
+            let periodText = currentMultiplier === 1 ? 'TL / ay' : `TL / ${currentMultiplier} ay`;
+
+            // Fiyatları ve periyot metinlerini güncelle
+            const updatePrice = (id, base) => {
+                document.getElementById(id).innerText = (base * currentMultiplier).toLocaleString('tr-TR') + ',00';
+            };
+
+            updatePrice('price-mod', 550);
+            updatePrice('price-guard', 450);
+            updatePrice('price-ticket', 300);
+            updatePrice('price-team', 350);
+            updatePrice('price-shift', 350);
+            updatePrice('price-graphic', 350);
+
+            document.getElementById('period-mod').innerText = periodText;
+            document.getElementById('period-guard').innerText = periodText;
+            document.getElementById('period-ticket').innerText = periodText;
+            document.getElementById('period-team').innerText = periodText;
+            document.getElementById('period-shift').innerText = periodText;
+            document.getElementById('period-graphic').innerText = periodText;
         }
     </script>
 </body>
