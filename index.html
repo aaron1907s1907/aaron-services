@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AARON Services & Network | Discord Bot & Grafik Hizmetleri</title>
+    <title>AARON Services & Network | Discord Bot Hizmetleri</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -72,7 +72,7 @@
             </div>
             <div>
                 <div class="brand-title">AARON <span>Services</span></div>
-                <div class="brand-sub">Profesyonel Discord & Grafik Çözümleri</div>
+                <div class="brand-sub">Profesyonel Discord Çözümleri</div>
             </div>
         </div>
         
@@ -89,7 +89,7 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <h1 class="hero-title">AARON <span>Services & Network</span></h1>
-        <p class="hero-desc">Sunucunuz için en kaliteli altyapı, moderasyon sistemleri ve özel grafik paketleri ile profesyonel çözümler sunuyoruz.</p>
+        <p class="hero-desc">Sunucunuz için en kaliteli altyapı, moderasyon sistemleri ve özel Discord çözümleri ile profesyonel hizmet sunuyoruz.</p>
     </section>
 
     <!-- PAKETLERİMİZ -->
@@ -184,21 +184,6 @@
                 </div>
                 <button onclick="addToCart('Mesai Sistemi', 350)" class="btn-add">Sepete Ekle</button>
             </div>
-
-            <!-- Aaron Grafik Paketi -->
-            <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
-                <div>
-                    <div class="card-title">Aaron Grafik Paketi</div>
-                    <div class="card-desc">Özel tasarım ve görsel branding</div>
-                    <div class="price-tag"><span id="price-graphic">350,00</span> <span class="price-period" id="period-graphic">TL / ay</span></div>
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-check"></i> Özel Logo & Banner Tasarımları</li>
-                        <li><i class="fa-solid fa-check"></i> Hareketli GIF Embed Başlıkları</li>
-                        <li><i class="fa-solid fa-check"></i> Discord Sunucu Şablon Tasarımı</li>
-                    </ul>
-                </div>
-                <button onclick="addToCart('Aaron Grafik Paketi', 350)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
-            </div>
         </div>
     </section>
 
@@ -291,7 +276,6 @@
             
             let periodText = currentMultiplier === 1 ? 'TL / ay' : `TL / ${currentMultiplier} ay`;
 
-            // Fiyatları ve periyot metinlerini güncelle
             const updatePrice = (id, base) => {
                 document.getElementById(id).innerText = (base * currentMultiplier).toLocaleString('tr-TR') + ',00';
             };
@@ -301,14 +285,12 @@
             updatePrice('price-ticket', 300);
             updatePrice('price-team', 350);
             updatePrice('price-shift', 350);
-            updatePrice('price-graphic', 350);
 
             document.getElementById('period-mod').innerText = periodText;
             document.getElementById('period-guard').innerText = periodText;
             document.getElementById('period-ticket').innerText = periodText;
             document.getElementById('period-team').innerText = periodText;
             document.getElementById('period-shift').innerText = periodText;
-            document.getElementById('period-graphic').innerText = periodText;
         }
     </script>
 </body>
