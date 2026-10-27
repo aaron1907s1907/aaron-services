@@ -81,7 +81,7 @@
             <button onclick="toggleCartModal()" class="btn-cart">
                 <i class="fa-solid fa-cart-shopping"></i> Sepetim <span id="cart-count" class="cart-badge">0</span>
             </button>
-            <a href="https://discord.gg/SENIN_SUNUCU_DAVETIN" target="_blank" class="btn-discord">
+            <a href="https://discord.com/invite/A9sYSWb9Fm" target="_blank" class="btn-discord">
                 <i class="fa-brands fa-discord"></i> Discord Sunucusu
             </a>
         </div>
@@ -91,12 +91,12 @@
     <section class="hero-section">
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number" id="online-members">1.208</div>
+                <div class="stat-number" id="online-members">...</div>
                 <div class="stat-label">Çevrimiçi Üye</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">787</div>
-                <div class="stat-label">Toplam Müşteri</div>
+                <div class="stat-number" id="total-members">787</div>
+                <div class="stat-label">Toplam Üye / Müşteri</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">1</div>
@@ -191,6 +191,30 @@
     </footer>
 
     <script>
+        // stats.json dosyasından canlı verileri okuyan fonksiyon
+        async function fetchDiscordStats() {
+            try {
+                let response = await fetch('./stats.json');
+                let data = await response.json();
+                
+                if (data) {
+                    if (data.online !== undefined) {
+                        document.getElementById('online-members').innerText = data.online.toLocaleString('tr-TR');
+                    }
+                    if (data.total !== undefined) {
+                        document.getElementById('total-members').innerText = data.total.toLocaleString('tr-TR');
+                    }
+                }
+            } catch (error) {
+                // Dosya henüz oluşmadıysa veya okunamazsa varsayılan değerleri korur
+                document.getElementById('online-members').innerText = "1.208";
+            }
+        }
+
+        // Sayfa açıldığında ve her 15 saniyede bir stats.json'ı kontrol et
+        fetchDiscordStats();
+        setInterval(fetchDiscordStats, 15000);
+
         let cart = [];
         let currentMultiplier = 1;
 
@@ -240,7 +264,7 @@
 
         function checkoutToDiscord() {
             if (cart.length === 0) return alert("Sepetiniz boş!");
-            window.location.href = "https://discord.gg/SENIN_SUNUCU_DAVETIN";
+            window.location.href = "https://discord.com/invite/A9sYSWb9Fm";
         }
 
         function setPeriod(months, el) {
