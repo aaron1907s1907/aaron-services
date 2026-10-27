@@ -25,11 +25,10 @@
         .btn-cart:hover { background: rgba(56, 189, 248, 0.1); }
         .cart-badge { background: #38bdf8; color: #0d111a; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 50px; position: absolute; top: -6px; right: -6px; }
 
-        .hero-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; text-align: center; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto 20px auto; }
-        .stat-card { background: #151b28; border: 1px solid #1c2436; padding: 28px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .stat-number { font-size: 40px; font-weight: 800; color: #38bdf8; margin-bottom: 6px; }
-        .stat-label { font-size: 14px; color: #94a3b8; font-weight: 600; }
+        .hero-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 30px 24px 20px 24px; text-align: center; }
+        .hero-title { font-size: 36px; font-weight: 800; color: #ffffff; margin-bottom: 10px; }
+        .hero-title span { color: #38bdf8; }
+        .hero-desc { font-size: 15px; color: #94a3b8; max-width: 600px; margin: 0 auto; line-height: 1.5; }
 
         .section-title { font-size: 30px; font-weight: 800; color: #ffffff; text-align: center; margin-bottom: 16px; }
         .tabs-wrapper { display: flex; justify-content: center; margin-bottom: 32px; }
@@ -37,7 +36,7 @@
         .tab-btn { background: transparent; border: none; color: #94a3b8; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
         .tab-btn.active { background: #38bdf8; color: #0d111a; font-weight: 700; }
 
-        .pricing-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 30px 24px; }
+        .pricing-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
         .price-card { background: #151b28; border: 1px solid #1c2436; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; }
         .price-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-4px); }
@@ -73,7 +72,7 @@
             </div>
             <div>
                 <div class="brand-title">AARON <span>Services</span></div>
-                <div class="brand-sub">Hızlı, güvenilir ve profesyonel Discord çözümleri.</div>
+                <div class="brand-sub">Profesyonel Discord & Grafik Çözümleri</div>
             </div>
         </div>
         
@@ -81,28 +80,16 @@
             <button onclick="toggleCartModal()" class="btn-cart">
                 <i class="fa-solid fa-cart-shopping"></i> Sepetim <span id="cart-count" class="cart-badge">0</span>
             </button>
-            <a href="https://discord.com/invite/A9sYSWb9Fm" target="_blank" class="btn-discord">
+            <a href="https://discord.gg/https://discord.com/invite/A9sYSWb9Fm" target="_blank" class="btn-discord">
                 <i class="fa-brands fa-discord"></i> Discord Sunucusu
             </a>
         </div>
     </header>
 
-    <!-- HERO / İSTATİSTİKLER -->
+    <!-- HERO SECTION -->
     <section class="hero-section">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number" id="online-members">...</div>
-                <div class="stat-label">Çevrimiçi Üye</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="total-members">787</div>
-                <div class="stat-label">Toplam Üye / Müşteri</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Aaron Personel</div>
-            </div>
-        </div>
+        <h1 class="hero-title">AARON <span>Services & Network</span></h1>
+        <p class="hero-desc">Sunucunuz için en kaliteli altyapı, moderasyon sistemleri ve özel grafik paketleri ile profesyonel çözümler sunuyoruz.</p>
     </section>
 
     <!-- PAKETLERİMİZ -->
@@ -191,30 +178,6 @@
     </footer>
 
     <script>
-        // stats.json dosyasından canlı verileri okuyan fonksiyon
-        async function fetchDiscordStats() {
-            try {
-                let response = await fetch('./stats.json');
-                let data = await response.json();
-                
-                if (data) {
-                    if (data.online !== undefined) {
-                        document.getElementById('online-members').innerText = data.online.toLocaleString('tr-TR');
-                    }
-                    if (data.total !== undefined) {
-                        document.getElementById('total-members').innerText = data.total.toLocaleString('tr-TR');
-                    }
-                }
-            } catch (error) {
-                // Dosya henüz oluşmadıysa veya okunamazsa varsayılan değerleri korur
-                document.getElementById('online-members').innerText = "1.208";
-            }
-        }
-
-        // Sayfa açıldığında ve her 15 saniyede bir stats.json'ı kontrol et
-        fetchDiscordStats();
-        setInterval(fetchDiscordStats, 15000);
-
         let cart = [];
         let currentMultiplier = 1;
 
@@ -264,7 +227,7 @@
 
         function checkoutToDiscord() {
             if (cart.length === 0) return alert("Sepetiniz boş!");
-            window.location.href = "https://discord.com/invite/A9sYSWb9Fm";
+            window.location.href = "https://discord.gg/https://discord.com/invite/A9sYSWb9Fm";
         }
 
         function setPeriod(months, el) {
