@@ -7,510 +7,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #0d111a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; overflow-x: hidden; }
 
-        body {
-            background-color: #0d111a;
-            color: #e2e8f0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-x: hidden;
-        }
+        header { width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; align-items: center; justify-content: space-between; }
+        .logo-box { display: flex; align-items: center; gap: 12px; }
+        .logo-svg { width: 44px; height: 44px; border-radius: 12px; background: #151b28; border: 1px solid rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        .brand-title { font-size: 20px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
+        .brand-title span { color: #38bdf8; }
+        .brand-sub { font-size: 12px; color: #94a3b8; }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
 
-        /* HEADER */
-        header {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        .btn-discord { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: 700; padding: 10px 20px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; transition: all 0.2s ease; }
+        .btn-discord:hover { background: rgba(56, 189, 248, 0.2); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
 
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .user-profile-badge { display: flex; align-items: center; gap: 10px; background: #151b28; border: 1px solid rgba(56, 189, 248, 0.4); padding: 6px 14px; border-radius: 12px; }
+        .user-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
 
-        .logo-svg {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: #151b28;
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-        }
+        .hero-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto 20px auto; }
+        .stat-card { background: #151b28; border: 1px solid #1c2436; padding: 28px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .stat-number { font-size: 40px; font-weight: 800; color: #38bdf8; margin-bottom: 6px; }
+        .stat-label { font-size: 14px; color: #94a3b8; font-weight: 600; }
 
-        .brand-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-        }
+        .section-title { font-size: 30px; font-weight: 800; color: #ffffff; text-align: center; margin-bottom: 16px; }
+        .tabs-wrapper { display: flex; justify-content: center; margin-bottom: 32px; }
+        .tabs { background: #151b28; padding: 6px; border-radius: 14px; border: 1px solid #1c2436; display: inline-flex; gap: 6px; }
+        .tab-btn { background: transparent; border: none; color: #94a3b8; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .tab-btn.active { background: #38bdf8; color: #0d111a; font-weight: 700; }
 
-        .brand-title span {
-            color: #38bdf8;
-        }
+        .pricing-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 30px 24px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .price-card { background: #151b28; border: 1px solid #1c2436; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; }
+        .price-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-4px); }
+        .card-title { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+        .card-desc { font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+        .price-tag { font-size: 28px; font-weight: 800; color: #38bdf8; margin-bottom: 24px; }
+        .price-period { font-size: 14px; font-weight: 400; color: #94a3b8; }
+        .feature-list { list-style: none; margin-bottom: 28px; }
+        .feature-list li { font-size: 13px; color: #cbd5e1; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .feature-list i { color: #38bdf8; }
 
-        .brand-sub {
-            font-size: 12px;
-            color: #94a3b8;
-        }
+        .btn-add { width: 100%; padding: 12px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s ease; }
+        .btn-add:hover { background: #38bdf8; color: #0d111a; }
 
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .btn-discord {
-            background: rgba(56, 189, 248, 0.1);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-discord:hover {
-            background: rgba(56, 189, 248, 0.2);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-        }
-
-        .lang-switch {
-            background: #151b28;
-            border: 1px solid #1c2436;
-            border-radius: 10px;
-            padding: 4px;
-            display: flex;
-            gap: 2px;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: #94a3b8;
-            font-weight: 600;
-            font-size: 12px;
-            padding: 6px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .lang-btn.active {
-            background: #38bdf8;
-            color: #0d111a;
-        }
-
-        /* HERO & COUNTERS */
-        .hero-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 24px 40px 24px;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto 20px auto;
-        }
-
-        .stat-card {
-            background: #151b28;
-            border: 1px solid #1c2436;
-            padding: 28px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .stat-number {
-            font-size: 40px;
-            font-weight: 800;
-            color: #38bdf8;
-            margin-bottom: 6px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: #94a3b8;
-            font-weight: 600;
-        }
-
-        /* SECTION TITLES & TABS */
-        .section-title {
-            font-size: 30px;
-            font-weight: 800;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .tabs-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 32px;
-        }
-
-        .tabs {
-            background: #151b28;
-            padding: 6px;
-            border-radius: 14px;
-            border: 1px solid #1c2436;
-            display: inline-flex;
-            gap: 6px;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: none;
-            color: #94a3b8;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .tab-btn.active {
-            background: #38bdf8;
-            color: #0d111a;
-            font-weight: 700;
-        }
-
-        /* PRICING GRID */
-        .pricing-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 24px;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .price-card {
-            background: #151b28;
-            border: 1px solid #1c2436;
-            border-radius: 20px;
-            padding: 28px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .price-card:hover {
-            border-color: rgba(56, 189, 248, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.1);
-        }
-
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-
-        .card-desc {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
-
-        .price-tag {
-            font-size: 28px;
-            font-weight: 800;
-            color: #38bdf8;
-            margin-bottom: 24px;
-        }
-
-        .price-period {
-            font-size: 14px;
-            font-weight: 400;
-            color: #94a3b8;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-bottom: 28px;
-        }
-
-        .feature-list li {
-            font-size: 13px;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feature-list i {
-            color: #38bdf8;
-        }
-
-        .btn-add {
-            width: 100%;
-            padding: 12px;
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-add:hover {
-            background: #38bdf8;
-            color: #0d111a;
-        }
-
-        /* TEAM SECTION */
-        .team-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 24px;
-        }
-
-        .team-box {
-            display: flex;
-            justify-content: center;
-        }
-
-        .team-card {
-            background: #151b28;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 20px;
-            padding: 32px;
-            text-align: center;
-            max-width: 380px;
-            width: 100%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .team-avatar-box {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: #0d111a;
-            border: 2px solid #38bdf8;
-            margin: 0 auto 16px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
-
-        /* REVIEWS SECTION */
-        .reviews-section {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        .review-box {
-            background: #151b28;
-            border: 1px solid #1c2436;
-            border-radius: 20px;
-            padding: 28px;
-            text-align: center;
-            margin-bottom: 24px;
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form-box {
-            background: #151b28;
-            border: 1px solid #1c2436;
-            border-radius: 20px;
-            padding: 24px;
-        }
-
-        .form-input, .form-textarea {
-            width: 100%;
-            background: #0d111a;
-            border: 1px solid #1c2436;
-            border-radius: 10px;
-            padding: 12px;
-            color: #ffffff;
-            font-size: 13px;
-            margin-bottom: 12px;
-            outline: none;
-        }
-
-        .form-input:focus, .form-textarea:focus {
-            border-color: #38bdf8;
-        }
-
-        .form-textarea {
-            height: 90px;
-            resize: none;
-        }
-
-        /* MODAL */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(4px);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-
-        .modal-overlay.hidden {
-            display: none;
-        }
-
-        .discord-modal {
-            background: #18191c;
-            width: 100%;
-            max-width: 440px;
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid #2b2d31;
-            position: relative;
-            color: #dbdee1;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: transparent;
-            border: none;
-            color: #94a3b8;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .modal-header-avatars {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .modal-avatar-brand {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #0d111a;
-            border: 2px solid #38bdf8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-        }
-
-        .modal-avatar-user {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #313338;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: #5865f2;
-        }
-
-        .permissions-card {
-            background: #2b2d31;
-            padding: 16px;
-            border-radius: 10px;
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-
-        .perm-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 8px;
-            color: #dbdee1;
-        }
-
-        .btn-authorize {
-            width: 100%;
-            padding: 12px;
-            background: #5865f2;
-            color: #ffffff;
-            border: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .btn-authorize:hover {
-            background: #4752c4;
-        }
-
-        /* TOOLBOX DASHBOARD */
-        .toolbox-panel {
-            background: #151b28;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 20px;
-            padding: 24px;
-            margin-top: 20px;
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 24px;
-            border-top: 1px solid #1c2436;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #64748b;
-        }
+        .toolbox-panel { background: #151b28; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 24px; margin-bottom: 30px; }
+        footer { width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px; border-top: 1px solid #1c2436; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #64748b; }
     </style>
 </head>
 <body>
@@ -530,22 +72,18 @@
             </div>
         </div>
         
-        <div class="nav-actions">
-            <button onclick="openOAuthModal()" class="btn-discord" id="login-nav-btn">
-                <i class="fa-brands fa-discord"></i> Giriş Yap
+        <div class="nav-actions" id="nav-user-container">
+            <button onclick="redirectToDiscordLogin()" class="btn-discord">
+                <i class="fa-brands fa-discord"></i> Discord ile Giriş Yap
             </button>
-            <div class="lang-switch">
-                <button class="lang-btn active">TR</button>
-                <button class="lang-btn">EN</button>
-            </div>
         </div>
     </header>
 
-    <!-- DASHBOARD CONTAINER (GİRİŞ YAPILINCA AÇILIR) -->
+    <!-- KULLANICI GİRİŞ YAPTIYSA TOOLBOX PANELİ -->
     <div id="toolbox-section" style="display: none; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px;">
         <div class="toolbox-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="color: #ffffff; font-size: 20px; font-weight: 800;"><i class="fa-solid fa-toolbox text-sky-400"></i> Aaron ToolBox Müşteri Paneli</h3>
+                <h3 style="color: #ffffff; font-size: 18px; font-weight: 800;"><i class="fa-solid fa-toolbox text-sky-400"></i> Aaron ToolBox Müşteri Paneli</h3>
                 <button onclick="logout()" style="background: #ef4444; color: #fff; border: none; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">Çıkış Yap</button>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
@@ -554,11 +92,11 @@
                     <div style="color: #22c55e; font-size: 14px; font-weight: 800; margin-top: 4px;"><i class="fa-solid fa-circle"></i> Online / Aktif</div>
                 </div>
                 <div style="background: #0d111a; padding: 16px; border-radius: 12px; border: 1px solid #1c2436;">
-                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">AKTİF PRESENCE</div>
+                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">PRESENCE STATUS</div>
                     <div style="color: #38bdf8; font-size: 13px; font-weight: 700; margin-top: 4px;">Aaron Services | Aaron ile kod yazıyor</div>
                 </div>
                 <div style="background: #0d111a; padding: 16px; border-radius: 12px; border: 1px solid #1c2436;">
-                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">BAĞLI SUNUCU ID</div>
+                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">HİZMET SUNUCU ID</div>
                     <div style="color: #ffffff; font-size: 13px; font-weight: 700; margin-top: 4px;">1564652809402585380</div>
                 </div>
             </div>
@@ -596,7 +134,6 @@
         </div>
 
         <div class="pricing-grid">
-            <!-- Discord Full Pack -->
             <div class="price-card">
                 <div>
                     <div class="card-title">Discord Full Pack</div>
@@ -606,13 +143,11 @@
                         <li><i class="fa-solid fa-check"></i> Gelişmiş Moderasyon & Guard</li>
                         <li><i class="fa-solid fa-check"></i> Sunucu Otomatik Backup (Yedekleme)</li>
                         <li><i class="fa-solid fa-check"></i> BlackList Sunucu Kontrolü</li>
-                        <li><i class="fa-solid fa-check"></i> Log Sunucusu İçin Yetkili Kontrolü</li>
                     </ul>
                 </div>
-                <button onclick="openOAuthModal()" class="btn-add">Sepete Ekle</button>
+                <button onclick="redirectToDiscordLogin()" class="btn-add">Sepete Ekle</button>
             </div>
 
-            <!-- Aaron Grafik Paketi -->
             <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
                 <div>
                     <div class="card-title">Aaron Grafik Paketi</div>
@@ -620,14 +155,13 @@
                     <div class="price-tag"><span id="price-graphic">350,00</span> <span class="price-period" id="period-graphic">TL / ay</span></div>
                     <ul class="feature-list">
                         <li><i class="fa-solid fa-check"></i> Özel Logo & Banner Tasarımları</li>
-                        <li><i class="fa-solid fa-check"></i> Hareketli GIF & Static Embed Başlıkları</li>
+                        <li><i class="fa-solid fa-check"></i> Hareketli GIF Embed Başlıkları</li>
                         <li><i class="fa-solid fa-check"></i> Discord Sunucu Şablon Tasarımı</li>
                     </ul>
                 </div>
-                <button onclick="openOAuthModal()" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
+                <button onclick="redirectToDiscordLogin()" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
             </div>
 
-            <!-- Ticket & Destek Pack -->
             <div class="price-card">
                 <div>
                     <div class="card-title">Ticket & Destek Pack</div>
@@ -636,44 +170,10 @@
                     <ul class="feature-list">
                         <li><i class="fa-solid fa-check"></i> Gelişmiş Ticket Altyapısı (v14)</li>
                         <li><i class="fa-solid fa-check"></i> Kategori & Otomatik Transcript</li>
-                        <li><i class="fa-solid fa-check"></i> Log Kanalı Entegrasyonu</li>
                     </ul>
                 </div>
-                <button onclick="openOAuthModal()" class="btn-add">Sepete Ekle</button>
+                <button onclick="redirectToDiscordLogin()" class="btn-add">Sepete Ekle</button>
             </div>
-        </div>
-    </section>
-
-    <!-- EKİBİMİZ -->
-    <section class="team-section">
-        <h2 class="section-title">Ekibimiz</h2>
-        <div class="team-box">
-            <div class="team-card">
-                <div class="team-avatar-box">
-                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 15L85 85H70L50 45L30 85H15L50 15Z" fill="#38BDF8"/>
-                        <path d="M35 65H65" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="card-title">Aaron</div>
-                <div style="color: #38bdf8; font-size: 13px; font-weight: 700; margin-bottom: 10px;">Kurucu & Lead Developer</div>
-                <div class="card-desc" style="margin-bottom:0;">Node.js, Discord.js v14, Mongoose ve Express.js altyapıları ile özel bot geliştiricisi.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MÜŞTERİ YORUMLARI -->
-    <section class="reviews-section">
-        <h2 class="section-title">Müşteri Yorumları</h2>
-        <div id="reviews-container" class="review-box">
-            <span style="color: #94a3b8; font-size: 13px; font-style: italic;">Henüz yorum yapılmadı. İlk yorumu sen yap!</span>
-        </div>
-
-        <div class="form-box">
-            <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px;">Değerlendirme Bırak</div>
-            <input type="text" id="rev-name" placeholder="Adınız / Kullanıcı Adınız" class="form-input">
-            <textarea id="rev-text" placeholder="Yorumunuzu buraya yazın..." class="form-textarea"></textarea>
-            <button onclick="submitReview()" class="btn-add" style="background: #38bdf8; color: #0d111a;">Yorumu Gönder</button>
         </div>
     </section>
 
@@ -686,106 +186,62 @@
         </div>
     </footer>
 
-    <!-- DISCORD OAUTH2 MODAL -->
-    <div id="oauth-modal" class="modal-overlay hidden">
-        <div class="discord-modal">
-            <button onclick="closeOAuthModal()" class="close-btn">&times;</button>
-            
-            <div class="modal-header-avatars">
-                <div class="modal-avatar-brand">
-                    <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 15L85 85H70L50 45L30 85H15L50 15Z" fill="#38BDF8"/>
-                        <path d="M35 65H65" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <i class="fa-solid fa-ellipsis" style="color: #64748b;"></i>
-                <div class="modal-avatar-user"><i class="fa-brands fa-discord"></i></div>
-            </div>
-
-            <div style="text-align: center; font-weight: 800; font-size: 18px; color: #ffffff;">AARON Web</div>
-            <div style="text-align: center; font-size: 12px; color: #94a3b8; margin-bottom: 4px;">Discord hesabına erişmek istiyor</div>
-            <div style="text-align: center; font-size: 12px; color: #38bdf8; margin-bottom: 16px; font-weight: 600;">aaron1907s olarak oturum açıldı</div>
-
-            <div class="permissions-card">
-                <div style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 10px; margin-bottom: 8px;">Bu uygulamanın geliştiricisine izin verecek:</div>
-                <div class="perm-item"><i class="fa-solid fa-circle-check" style="color: #22c55e;"></i> Kullanıcı adına ve avatarına erişim</div>
-                <div class="perm-item"><i class="fa-solid fa-circle-check" style="color: #22c55e;"></i> E-posta adresine erişim</div>
-                <div class="perm-item"><i class="fa-solid fa-circle-check" style="color: #22c55e;"></i> Hangi sunucularda bulunduğunu bilme</div>
-                <div class="perm-item"><i class="fa-solid fa-circle-xmark" style="color: #ef4444;"></i> Şuraya küçük mutlu bir ağaç çizebilecek</div>
-            </div>
-
-            <button onclick="confirmOAuth()" class="btn-authorize">Yetkilendir</button>
-        </div>
-    </div>
-
     <script>
-        function openOAuthModal() {
-            document.getElementById('oauth-modal').classList.remove('hidden');
-        }
-        function closeOAuthModal() {
-            document.getElementById('oauth-modal').classList.add('hidden');
-        }
-        function confirmOAuth() {
-            closeOAuthModal();
-            document.getElementById('toolbox-section').style.display = 'block';
-            document.getElementById('login-nav-btn').innerHTML = `<i class="fa-solid fa-user-check"></i> aaron1907s`;
-            window.scrollTo({ top: document.getElementById('toolbox-section').offsetTop - 20, behavior: 'smooth' });
-        }
-        function logout() {
-            document.getElementById('toolbox-section').style.display = 'none';
-            document.getElementById('login-nav-btn').innerHTML = `<i class="fa-brands fa-discord"></i> Giriş Yap`;
+        // DISCORD OAUTH CONFIG
+        const CLIENT_ID = '1553413012579160074'; // <-- Discord Botunun Application Client ID'sini yazın
+        const REDIRECT_URI = window.location.origin + window.location.pathname;
+
+        function redirectToDiscordLogin() {
+            if (CLIENT_ID === '1553413012579160074') {
+                alert("Lütfen koddaki CLIENT_ID alanına Discord Bot Client ID'nizi yazın!");
+                return;
+            }
+            const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+email`;
+            window.location.href = authUrl;
         }
 
-        // PAKET SÜRESİ FİLTRELEME
+        // DISCORD GİRİŞİNİ KONTROL ET (Implicit Grant Flow)
+        window.onload = function() {
+            const fragment = new URLSearchParams(window.location.hash.slice(1));
+            const accessToken = fragment.get('access_token');
+
+            if (accessToken) {
+                fetch('https://discord.com/api/users/@me', {
+                    headers: { authorization: `Bearer ${accessToken}` }
+                })
+                .then(res => res.json())
+                .then(user => {
+                    if (user && user.username) {
+                        const avatarUrl = user.avatar 
+                            ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` 
+                            : 'https://cdn.discordapp.com/embed/avatars/0.png';
+
+                        document.getElementById('nav-user-container').innerHTML = `
+                            <div class="user-profile-badge">
+                                <img src="${avatarUrl}" class="user-avatar" alt="${user.username}">
+                                <span style="font-size: 13px; font-weight: 700; color: #fff;">${user.username}</span>
+                            </div>
+                        `;
+
+                        document.getElementById('toolbox-section').style.display = 'block';
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                    }
+                });
+            }
+        };
+
+        function logout() {
+            window.location.href = REDIRECT_URI;
+        }
+
         function setPeriod(months, el) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             el.classList.add('active');
-
-            const baseFull = 1300;
-            const baseGraphic = 350;
-            const baseTicket = 300;
-
-            let multiplier = parseInt(months);
-            let periodText = months === '1' ? 'TL / ay' : `TL / ${months} ay`;
-
-            document.getElementById('price-full').innerText = (baseFull * multiplier).toLocaleString('tr-TR') + ',00';
-            document.getElementById('price-graphic').innerText = (baseGraphic * multiplier).toLocaleString('tr-TR') + ',00';
-            document.getElementById('price-ticket').innerText = (baseTicket * multiplier).toLocaleString('tr-TR') + ',00';
-
-            document.getElementById('period-full').innerText = periodText;
-            document.getElementById('period-graphic').innerText = periodText;
-            document.getElementById('period-ticket').innerText = periodText;
+            let m = parseInt(months);
+            document.getElementById('price-full').innerText = (1300 * m).toLocaleString('tr-TR') + ',00';
+            document.getElementById('price-graphic').innerText = (350 * m).toLocaleString('tr-TR') + ',00';
+            document.getElementById('price-ticket').innerText = (300 * m).toLocaleString('tr-TR') + ',00';
         }
-
-        // DİNAMİK YORUM SİSTEMİ
-        let reviews = JSON.parse(localStorage.getItem('aaron_reviews') || '[]');
-        function renderReviews() {
-            const container = document.getElementById('reviews-container');
-            if(reviews.length === 0) {
-                container.innerHTML = `<span style="color: #94a3b8; font-size: 13px; font-style: italic;">Henüz yorum yapılmadı. İlk yorumu sen yap!</span>`;
-                return;
-            }
-            container.innerHTML = reviews.map(r => `
-                <div style="text-align: left; width: 100%; border-bottom: 1px solid #1c2436; padding-bottom: 10px; margin-bottom: 10px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: 700; color: #ffffff; font-size: 13px;">${r.name}</span>
-                        <span style="color: #f59e0b; font-size: 12px;">★★★★★</span>
-                    </div>
-                    <p style="color: #cbd5e1; font-size: 12px; margin-top: 4px;">${r.text}</p>
-                </div>
-            `).join('');
-        }
-        function submitReview() {
-            const name = document.getElementById('rev-name').value;
-            const text = document.getElementById('rev-text').value;
-            if(!name || !text) return alert("Lütfen tüm alanları doldurun.");
-            reviews.push({name, text});
-            localStorage.setItem('aaron_reviews', JSON.stringify(reviews));
-            document.getElementById('rev-name').value = '';
-            document.getElementById('rev-text').value = '';
-            renderReviews();
-        }
-        renderReviews();
     </script>
 </body>
 </html>
