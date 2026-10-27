@@ -39,7 +39,7 @@
         .tab-btn { background: transparent; border: none; color: #94a3b8; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
         .tab-btn.active { background: #38bdf8; color: #0d111a; font-weight: 700; }
 
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 20px; }
         .price-card { background: #151b28; border: 1px solid #1c2436; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; }
         .price-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-4px); }
         .card-title { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
@@ -52,6 +52,14 @@
 
         .btn-add { width: 100%; padding: 12px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s ease; }
         .btn-add:hover { background: #38bdf8; color: #0d111a; }
+
+        /* YAPIMCI EKİBİ STİLLERİ */
+        .team-section { width: 100%; max-width: 1200px; margin: 40px auto 20px auto; padding: 0 24px; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .team-card { background: #151b28; border: 1px solid #1c2436; border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 16px; }
+        .team-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #38bdf8, #5865f2); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; }
+        .team-info h4 { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .team-info p { color: #38bdf8; font-size: 12px; font-weight: 600; }
 
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
         .modal-overlay.hidden { display: none; }
@@ -208,6 +216,27 @@
                     </ul>
                 </div>
                 <button onclick="addToCart('FiveM Özel Bot & Yönetim', 650)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- YAPIMCI EKİBİ -->
+    <div class="team-section">
+        <div class="category-header"><i class="fa-solid fa-code"></i> Yapımcı Ekibi</div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">E</div>
+                <div class="team-info">
+                    <h4>Emirhan</h4>
+                    <p>Lead Developer & Founder</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">A</div>
+                <div class="team-info">
+                    <h4>Aaron</h4>
+                    <p>Lead Developer & Architect</p>
+                </div>
             </div>
         </div>
     </div>
