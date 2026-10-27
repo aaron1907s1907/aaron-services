@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AARON Services & Network | Discord Bot Hizmetleri</title>
+    <title>AARON Services & Network | Discord & FiveM Çözümleri</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -30,14 +30,16 @@
         .hero-title span { color: #38bdf8; }
         .hero-desc { font-size: 15px; color: #94a3b8; max-width: 600px; margin: 0 auto; line-height: 1.5; }
 
-        .section-title { font-size: 30px; font-weight: 800; color: #ffffff; text-align: center; margin-bottom: 16px; }
-        .tabs-wrapper { display: flex; justify-content: center; margin-bottom: 32px; }
+        .category-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px; }
+        .category-header { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1c2436; padding-bottom: 10px; }
+        .category-header i { color: #38bdf8; }
+
+        .tabs-wrapper { display: flex; justify-content: center; margin: 20px 0 30px 0; }
         .tabs { background: #151b28; padding: 6px; border-radius: 14px; border: 1px solid #1c2436; display: inline-flex; gap: 6px; }
         .tab-btn { background: transparent; border: none; color: #94a3b8; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
         .tab-btn.active { background: #38bdf8; color: #0d111a; font-weight: 700; }
 
-        .pricing-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
         .price-card { background: #151b28; border: 1px solid #1c2436; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; }
         .price-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-4px); }
         .card-title { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
@@ -72,7 +74,7 @@
             </div>
             <div>
                 <div class="brand-title">AARON <span>Services</span></div>
-                <div class="brand-sub">Profesyonel Discord Çözümleri</div>
+                <div class="brand-sub">Profesyonel Discord & FiveM Çözümleri</div>
             </div>
         </div>
         
@@ -89,12 +91,9 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <h1 class="hero-title">AARON <span>Services & Network</span></h1>
-        <p class="hero-desc">Sunucunuz için en kaliteli altyapı, moderasyon sistemleri ve özel Discord çözümleri ile profesyonel hizmet sunuyoruz.</p>
-    </section>
-
-    <!-- PAKETLERİMİZ -->
-    <section class="pricing-section">
-        <h2 class="section-title">Hizmetlerimiz & Paketler</h2>
+        <p class="hero-desc">Sunucunuz ve FiveM oyun altyapınız için en kaliteli bot sistemleri ve profesyonel çözümler.</p>
+        
+        <!-- DÖNEM SEÇİCİ TABLAR -->
         <div class="tabs-wrapper">
             <div class="tabs">
                 <button class="tab-btn active" onclick="setPeriod('1', this)">Aylık</button>
@@ -103,7 +102,11 @@
                 <button class="tab-btn" onclick="setPeriod('12', this)">Yıllık</button>
             </div>
         </div>
+    </section>
 
+    <!-- KATEGORİ 1: DİSCORD BOT HİZMETLERİ -->
+    <div class="category-container">
+        <div class="category-header"><i class="fa-brands fa-discord"></i> Discord Bot Hizmetleri</div>
         <div class="pricing-grid">
             <!-- Moderasyon -->
             <div class="price-card">
@@ -185,7 +188,29 @@
                 <button onclick="addToCart('Mesai Sistemi', 350)" class="btn-add">Sepete Ekle</button>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- KATEGORİ 2: FIVEM ÖZEL ENTEGRASYONLAR -->
+    <div class="category-container">
+        <div class="category-header"><i class="fa-solid fa-gamepad"></i> FiveM Sunucu Entegrasyonları</div>
+        <div class="pricing-grid">
+            <!-- FiveM Özel Bot -->
+            <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
+                <div>
+                    <div class="card-title">FiveM Özel Bot & Yönetim</div>
+                    <div class="card-desc">Oyun içi ve Discord köprüsü, sunucu yönetimi entegrasyonu</div>
+                    <div class="price-tag"><span id="price-fivem">650,00</span> <span class="price-period" id="period-fivem">TL / ay</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Oyun İçi - Discord Karışma & Komut Köprüsü</li>
+                        <li><i class="fa-solid fa-check"></i> Oyuncu İstatistik & Karakter Kontrolü</li>
+                        <li><i class="fa-solid fa-check"></i> Canlı FiveM Sunucu Durumu & Logları</li>
+                        <li><i class="fa-solid fa-check"></i> Otomatik Rol & Yetki Senkronizasyonu</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('FiveM Özel Bot & Yönetim', 650)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
 
     <!-- SEPET MODAL -->
     <div id="cart-modal" class="modal-overlay hidden">
@@ -285,12 +310,14 @@
             updatePrice('price-ticket', 300);
             updatePrice('price-team', 350);
             updatePrice('price-shift', 350);
+            updatePrice('price-fivem', 650);
 
             document.getElementById('period-mod').innerText = periodText;
             document.getElementById('period-guard').innerText = periodText;
             document.getElementById('period-ticket').innerText = periodText;
             document.getElementById('period-team').innerText = periodText;
             document.getElementById('period-shift').innerText = periodText;
+            document.getElementById('period-fivem').innerText = periodText;
         }
     </script>
 </body>
