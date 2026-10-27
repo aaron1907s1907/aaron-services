@@ -1,173 +1,68 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron Services & Network | Özel Discord & Sunucu Çözümleri</title>
+    <title>AARON Services & Network | Discord Bot & Grafik Hizmetleri</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
-        .glow-purple { box-shadow: 0 0 25px rgba(139, 92, 246, 0.35); }
-        .glow-cyan { box-shadow: 0 0 25px rgba(6, 182, 212, 0.35); }
-        .glass-card { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glass-card:hover { border-color: rgba(139, 92, 246, 0.4); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f17;
+            color: #e2e8f0;
+        }
+        .bg-kateshi-dark { background-color: #0b0f17; }
+        .bg-kateshi-card { background-color: #121824; }
+        .bg-kateshi-border { border-color: #1e293b; }
+        .text-neon-cyan { color: #38bdf8; }
+        .bg-neon-cyan { background-color: #38bdf8; }
+        .glow-card {
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        .discord-modal-bg { background-color: #18191c; }
+        .discord-card-bg { background-color: #2b2d31; }
     </style>
 </head>
-<body class="selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden">
 
-    <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card bg-opacity-80 border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <!-- Yeni Logo Entegre Edildi -->
-                <img src="logo.png" alt="Aaron Logo" class="w-10 h-10 rounded-xl object-cover border border-cyan-500/50 shadow-lg glow-cyan">
-                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Aaron Services</span>
-            </div>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-300">
-                <a href="#hizmetler" class="hover:text-purple-400 transition-colors">Hizmetlerimiz</a>
-                <a href="#iletisim" class="hover:text-purple-400 transition-colors">İletişim & Destek</a>
-                <a href="#gelecek" class="hover:text-purple-400 transition-colors">Gelecek Çalışmalar</a>
-            </nav>
+    <!-- SABİT SAĞ YAN MENÜ -->
+    <div class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4 p-3 bg-kateshi-card/80 backdrop-blur-md rounded-2xl border border-slate-800/80 text-slate-400">
+        <a href="#hero" class="hover:text-sky-400 transition-all p-2 rounded-xl hover:bg-slate-800/50" title="Ana Sayfa"><i class="fa-solid fa-house text-lg"></i></a>
+        <a href="#paketler" class="hover:text-sky-400 transition-all p-2 rounded-xl hover:bg-slate-800/50" title="Paketlerimiz"><i class="fa-solid fa-box text-lg"></i></a>
+        <a href="#ekip" class="hover:text-sky-400 transition-all p-2 rounded-xl hover:bg-slate-800/50" title="Ekibimiz"><i class="fa-solid fa-user-shield text-lg"></i></a>
+        <a href="#yorumlar" class="hover:text-sky-400 transition-all p-2 rounded-xl hover:bg-slate-800/50" title="Müşteri Yorumları"><i class="fa-solid fa-star text-lg"></i></a>
+    </div>
+
+    <!-- HEADER / NAV -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-30">
+        <div class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/d/1XyZ40jX-42eN3x_33f" alt="AARON" class="w-10 h-10 rounded-xl object-cover border border-sky-500/30">
             <div>
-                <a href="https://discord.gg/A9sYSWb9Fm" target="_blank" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-bold text-sm shadow-md glow-purple transition-all duration-300 flex items-center space-x-2">
-                    <i class="fab fa-discord text-lg"></i>
-                    <span>Discord'a Katıl</span>
-                </a>
+                <span class="text-xl font-extrabold tracking-wider text-white">AARON <span class="text-sky-400">Services</span></span>
+                <p class="text-xs text-slate-400 hidden sm:block">Hızlı, güvenilir ve profesyonel Discord çözümleri.</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <button onclick="openOAuthModal()" class="bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 font-semibold px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 text-sm">
+                <i class="fa-brands fa-discord"></i> Giriş Yap
+            </button>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-1 flex text-xs font-semibold">
+                <button class="px-2.5 py-1 bg-sky-500 text-slate-950 rounded-lg">TR</button>
+                <button class="px-2.5 py-1 text-slate-400 hover:text-white">EN</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-36 pb-16 px-6 max-w-7xl mx-auto text-center">
-        <!-- Büyük Profil Görseli -->
-        <div class="mb-6 inline-block">
-            <img src="logo.png" alt="Aaron Logo" class="w-24 h-24 mx-auto rounded-2xl object-cover border-2 border-cyan-400 shadow-2xl glow-cyan animate-pulse">
-        </div>
-        <br>
-        <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-purple-300 mb-6 border border-purple-500/30 shadow-inner">
-            <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
-            <span>Bot Status: Competing with Aaron in coding 💻</span>
-        </div>
-        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-6 leading-tight">
-            Sunucunuza Özel <span class="bg-gradient-to-r from-purple-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">Gelişmiş Discord Bot</span> Ve Yönetim Sistemleri
-        </h1>
-        <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-10 leading-relaxed">
-            FiveM & RP sunucularına özel otomasyonlar, gelişmiş yetkili/destek sistemleri ve tamamen ihtiyacınıza özel tasarlanmış bot çözümleri ile topluluğunuzu bir adım öne taşıyın.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#hizmetler" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold shadow-lg glow-purple transition-all">Neler Yapabiliriz?</a>
-            <a href="#iletisim" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card hover:bg-gray-800 text-gray-200 font-bold border border-gray-700 transition-all">İletişime Geç</a>
-        </div>
-    </section>
-
-    <!-- Hizmetlerimiz -->
-    <section id="hizmetler" class="py-16 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Neler Yapılabilir?</h2>
-            <p class="text-gray-400">Sunucunuz için hazırlayabileceğimiz özel sistem ve bot altyapıları</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Hizmet 1 -->
-            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                <div class="w-14 h-14 rounded-xl bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-ticket-alt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Özel Ticket & Destek Sistemleri</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Butonlu/Menülü bilet oluşturma, otomatik yetkili atama, bilet kaydı (transcript) ve puanlama altyapıları.</p>
-            </div>
-
-            <!-- Hizmet 2 -->
-            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                <div class="w-14 h-14 rounded-xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-shield-halved"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Yetkili & Moderasyon Sistemleri</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Otomatik reklam/spam koruması, gelişmiş ceza (mute/ban/jail) logları, kanal kilitleme ve yavaş mod komutları.</p>
-            </div>
-
-            <!-- Hizmet 3 -->
-            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                <div class="w-14 h-14 rounded-xl bg-indigo-950/80 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-user-check"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Başvuru, Kayıt & Whitelist</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">FiveM ve RP sunucuları için mülakat butonları, otomatik kayıt, whitelist verme ve onay-red mekanizmaları.</p>
-            </div>
-
-            <!-- Hizmet 4 -->
-            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                <div class="w-14 h-14 rounded-xl bg-green-950/80 border border-green-500/30 flex items-center justify-center text-green-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">FiveM / RP Özel Botları</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Sunucu aktif/pasif/bakım durum panelleri, oyuncu sayısı göstergesi ve roleplay sunucularına özel entegrasyonlar.</p>
-            </div>
-
-            <!-- Hizmet 5 -->
-            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                <div class="w-14 h-14 rounded-xl bg-yellow-950/80 border border-yellow-500/30 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Ekip & Üye Takip Sistemleri</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Yetkili aktiflik süreleri, ses/mesaj istatistikleri, puanlama ve ekip yönetim altyapıları.</p>
-            </div>
-
-            <!-- Hizmet 6 -->
-            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                <div class="w-14 h-14 rounded-xl bg-pink-950/80 border border-pink-500/30 flex items-center justify-center text-pink-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Özel Tasarım & Fikirler</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Aklınıza gelen özel bot fikirleri, sunucunuza özel hoş geldin görselleri, zengin embed paneller ve konfigürasyonlar.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gelecek Çalışmalar Bilgilendirmesi -->
-    <section id="gelecek" class="py-8 px-6 max-w-7xl mx-auto">
-        <div class="glass-card p-8 rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-950/30 via-transparent to-cyan-950/30 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-2xl font-bold">🛠️</div>
-                <div>
-                    <h4 class="text-lg font-bold text-white">FiveM Script & Oyun İçi Paket Geliştirme</h4>
-                    <p class="text-sm text-gray-400">Telsiz, özel script entegrasyonları ve grafik paketleri öğrenme & test aşamasındadır. Çok yakında hizmete açılacaktır!</p>
-                </div>
-            </div>
-            <span class="px-4 py-2 rounded-xl bg-purple-900/50 text-purple-300 text-xs font-bold border border-purple-500/30 whitespace-nowrap">Geliştirme Aşamasında</span>
-        </div>
-    </section>
-
-    <!-- İletişim & Discord Alanı -->
-    <section id="iletisim" class="py-16 px-6 max-w-7xl mx-auto">
-        <div class="glass-card p-10 rounded-3xl border border-purple-500/30 relative overflow-hidden text-center glow-purple">
-            <div class="max-w-2xl mx-auto">
-                <img src="logo.png" alt="Aaron Logo" class="w-20 h-20 mx-auto mb-6 rounded-2xl object-cover border border-cyan-400 shadow-xl glow-cyan">
-                <h2 class="text-3xl font-extrabold text-white mb-4">Bir Projeniz mi Var? Bize Ulaşın!</h2>
-                <p class="text-gray-300 mb-8 text-sm md:text-base leading-relaxed">
-                    Sunucunuza özel bot yaptırmak, destek almak veya aklınızdaki bot fikrini hayata geçirmek için Discord sunucumuza katılabilir ya da direkt DM üzerinden iletişime geçebilirsiniz.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="https://discord.gg/A9sYSWb9Fm" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-bold shadow-lg transition-all flex items-center justify-center space-x-3">
-                        <i class="fab fa-discord text-xl"></i>
-                        <span>Discord Sunucusuna Katıl</span>
-                    </a>
-                    <div class="px-6 py-4 rounded-xl bg-gray-900/80 border border-gray-700 text-gray-300 font-mono text-sm flex items-center justify-center space-x-2">
-                        <i class="fas fa-user-tag text-purple-400"></i>
-                        <span>Discord: @aaron.services</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10 border-t border-gray-800 text-center text-gray-500 text-sm">
-        <p>&copy; 2026 Aaron Services & Network. Tüm Hakları Saklıdır.</p>
-        <p class="text-xs text-gray-600 mt-2">Discord Bot Altyapısı & Sunucu Otomasyon Çözümleri</p>
-    </footer>
-
-</body>
-</html>
+    <!-- HERO / İSTATİSTİK BÖLÜMÜ -->
+    <section id="hero" class="w-full max-w-7xl mx-auto px-6 pt-12 pb-16 text-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+            <div class="bg-kateshi-card p-6 rounded-2xl border border-slate-800/80">
+                <h3 class="text-4xl font-extrabold text-sky-400 mb-1" id="stat-online">1.208
