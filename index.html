@@ -16,13 +16,14 @@
         .brand-title { font-size: 20px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
         .brand-title span { color: #38bdf8; }
         .brand-sub { font-size: 12px; color: #94a3b8; }
-        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
 
-        .btn-discord { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: 700; padding: 10px 20px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; transition: all 0.2s ease; }
-        .btn-discord:hover { background: rgba(56, 189, 248, 0.2); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        .btn-discord { background: #5865f2; color: #ffffff; font-weight: 700; padding: 10px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; text-decoration: none; transition: all 0.2s ease; border: none; }
+        .btn-discord:hover { background: #4752c4; }
 
-        .user-profile-badge { display: flex; align-items: center; gap: 10px; background: #151b28; border: 1px solid rgba(56, 189, 248, 0.4); padding: 6px 14px; border-radius: 12px; }
-        .user-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+        .btn-cart { background: #151b28; color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: 700; padding: 10px 16px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; position: relative; transition: all 0.2s ease; }
+        .btn-cart:hover { background: rgba(56, 189, 248, 0.1); }
+        .cart-badge { background: #38bdf8; color: #0d111a; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 50px; position: absolute; top: -6px; right: -6px; }
 
         .hero-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px 24px; text-align: center; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto 20px auto; }
@@ -51,7 +52,12 @@
         .btn-add { width: 100%; padding: 12px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s ease; }
         .btn-add:hover { background: #38bdf8; color: #0d111a; }
 
-        .toolbox-panel { background: #151b28; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 24px; margin-bottom: 30px; }
+        /* SEPET MODAL STİLLERİ */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+        .modal-overlay.hidden { display: none; }
+        .cart-modal { background: #151b28; border: 1px solid #1c2436; width: 100%; max-width: 480px; border-radius: 20px; padding: 24px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; background: #0d111a; padding: 12px 16px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #1c2436; }
+
         footer { width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px; border-top: 1px solid #1c2436; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #64748b; }
     </style>
 </head>
@@ -72,36 +78,15 @@
             </div>
         </div>
         
-        <div class="nav-actions" id="nav-user-container">
-            <button onclick="redirectToDiscordLogin()" class="btn-discord">
-                <i class="fa-brands fa-discord"></i> Discord ile Giriş Yap
+        <div class="nav-actions">
+            <button onclick="toggleCartModal()" class="btn-cart">
+                <i class="fa-solid fa-cart-shopping"></i> Sepetim <span id="cart-count" class="cart-badge">0</span>
             </button>
+            <a href="https://discord.gg/SENIN_SUNUCU_DAVETIN" target="_blank" class="btn-discord">
+                <i class="fa-brands fa-discord"></i> Discord Sunucusu
+            </a>
         </div>
     </header>
-
-    <!-- KULLANICI GİRİŞ YAPTIYSA TOOLBOX PANELİ -->
-    <div id="toolbox-section" style="display: none; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-        <div class="toolbox-panel">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="color: #ffffff; font-size: 18px; font-weight: 800;"><i class="fa-solid fa-toolbox text-sky-400"></i> Aaron ToolBox Müşteri Paneli</h3>
-                <button onclick="logout()" style="background: #ef4444; color: #fff; border: none; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">Çıkış Yap</button>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
-                <div style="background: #0d111a; padding: 16px; border-radius: 12px; border: 1px solid #1c2436;">
-                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">BOT DURUMU</div>
-                    <div style="color: #22c55e; font-size: 14px; font-weight: 800; margin-top: 4px;"><i class="fa-solid fa-circle"></i> Online / Aktif</div>
-                </div>
-                <div style="background: #0d111a; padding: 16px; border-radius: 12px; border: 1px solid #1c2436;">
-                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">PRESENCE STATUS</div>
-                    <div style="color: #38bdf8; font-size: 13px; font-weight: 700; margin-top: 4px;">Aaron Services | Aaron ile kod yazıyor</div>
-                </div>
-                <div style="background: #0d111a; padding: 16px; border-radius: 12px; border: 1px solid #1c2436;">
-                    <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">HİZMET SUNUCU ID</div>
-                    <div style="color: #ffffff; font-size: 13px; font-weight: 700; margin-top: 4px;">1564652809402585380</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- HERO / İSTATİSTİKLER -->
     <section class="hero-section">
@@ -145,7 +130,7 @@
                         <li><i class="fa-solid fa-check"></i> BlackList Sunucu Kontrolü</li>
                     </ul>
                 </div>
-                <button onclick="redirectToDiscordLogin()" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Discord Full Pack', 1300)" class="btn-add">Sepete Ekle</button>
             </div>
 
             <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
@@ -159,7 +144,7 @@
                         <li><i class="fa-solid fa-check"></i> Discord Sunucu Şablon Tasarımı</li>
                     </ul>
                 </div>
-                <button onclick="redirectToDiscordLogin()" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
+                <button onclick="addToCart('Aaron Grafik Paketi', 350)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
             </div>
 
             <div class="price-card">
@@ -172,10 +157,30 @@
                         <li><i class="fa-solid fa-check"></i> Kategori & Otomatik Transcript</li>
                     </ul>
                 </div>
-                <button onclick="redirectToDiscordLogin()" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Ticket & Destek Pack', 300)" class="btn-add">Sepete Ekle</button>
             </div>
         </div>
     </section>
+
+    <!-- SEPET MODAL -->
+    <div id="cart-modal" class="modal-overlay hidden">
+        <div class="cart-modal">
+            <button onclick="toggleCartModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; color: #94a3b8; font-size: 20px; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 12px;"><i class="fa-solid fa-cart-shopping text-sky-400"></i> Sepetim</h3>
+            <p style="color: #94a3b8; font-size: 11px; margin-bottom: 16px;">Ödemeler IBAN ile yapılmaktadır. Siparişi tamamla dediğinizde Discord sunucumuza yönlendirileceksiniz.</p>
+            
+            <div id="cart-items-container" style="max-height: 200px; overflow-y: auto; margin-bottom: 20px;">
+                <p style="color: #94a3b8; text-align: center; font-size: 13px; padding: 20px;">Sepetiniz boş.</p>
+            </div>
+
+            <div style="border-top: 1px solid #1c2436; paddingTop: 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <span style="color: #94a3b8; font-weight: 700; font-size: 14px;">Toplam Tutar:</span>
+                <span id="cart-total" style="color: #38bdf8; font-weight: 800; font-size: 20px;">0,00 TL</span>
+            </div>
+
+            <button onclick="checkoutToDiscord()" class="btn-add" style="background: #5865f2; color: #ffffff; text-align: center; border: none;"><i class="fa-brands fa-discord"></i> Discord Üzerinden Siparişi Tamamla</button>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -187,56 +192,67 @@
     </footer>
 
     <script>
-        // DISCORD OAUTH CONFIG (Client ID Entegre Edildi)
-        const CLIENT_ID = '1553413012579160074';
-        const REDIRECT_URI = window.location.origin + window.location.pathname;
+        let cart = [];
+        let currentMultiplier = 1;
 
-        function redirectToDiscordLogin() {
-            const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+email`;
-            window.location.href = authUrl;
+        function addToCart(name, basePrice) {
+            let price = basePrice * currentMultiplier;
+            cart.push({ name, price });
+            updateCartUI();
+            alert(`${name} sepete eklendi!`);
         }
 
-        // DISCORD GİRİŞİNİ KONTROL ET
-        window.onload = function() {
-            const fragment = new URLSearchParams(window.location.hash.slice(1));
-            const accessToken = fragment.get('access_token');
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
 
-            if (accessToken) {
-                fetch('https://discord.com/api/users/@me', {
-                    headers: { authorization: `Bearer ${accessToken}` }
-                })
-                .then(res => res.json())
-                .then(user => {
-                    if (user && user.username) {
-                        const avatarUrl = user.avatar 
-                            ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` 
-                            : 'https://cdn.discordapp.com/embed/avatars/0.png';
-
-                        document.getElementById('nav-user-container').innerHTML = `
-                            <div class="user-profile-badge">
-                                <img src="${avatarUrl}" class="user-avatar" alt="${user.username}">
-                                <span style="font-size: 13px; font-weight: 700; color: #fff;">${user.username}</span>
-                            </div>
-                        `;
-
-                        document.getElementById('toolbox-section').style.display = 'block';
-                        window.history.replaceState({}, document.title, window.location.pathname);
-                    }
-                });
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items-container');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="color: #94a3b8; text-align: center; font-size: 13px; padding: 20px;">Sepetiniz boş.</p>`;
+                document.getElementById('cart-total').innerText = `0,00 TL`;
+                return;
             }
-        };
 
-        function logout() {
-            window.location.href = REDIRECT_URI;
+            let total = 0;
+            container.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="cart-item">
+                        <div>
+                            <div style="color: #fff; font-weight: 700; font-size: 13px;">${item.name}</div>
+                            <div style="color: #38bdf8; font-size: 12px; font-weight: 600;">${item.price.toLocaleString('tr-TR')},00 TL</div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="background: rgba(239, 68, 68, 0.2); color: #ef4444; border: none; padding: 6px 10px; border-radius: 8px; cursor: pointer;"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('cart-total').innerText = total.toLocaleString('tr-TR') + ',00 TL';
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function checkoutToDiscord() {
+            if (cart.length === 0) return alert("Sepetiniz boş!");
+            // Buraya kendi Discord sunucu davet linkinizi yazabilirsiniz
+            window.location.href = "https://discord.gg/SENIN_SUNUCU_DAVETIN";
         }
 
         function setPeriod(months, el) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             el.classList.add('active');
-            let m = parseInt(months);
-            document.getElementById('price-full').innerText = (1300 * m).toLocaleString('tr-TR') + ',00';
-            document.getElementById('price-graphic').innerText = (350 * m).toLocaleString('tr-TR') + ',00';
-            document.getElementById('price-ticket').innerText = (300 * m).toLocaleString('tr-TR') + ',00';
+            currentMultiplier = parseInt(months);
+            
+            document.getElementById('price-full').innerText = (1300 * currentMultiplier).toLocaleString('tr-TR') + ',00';
+            document.getElementById('price-graphic').innerText = (350 * currentMultiplier).toLocaleString('tr-TR') + ',00';
+            document.getElementById('price-ticket').innerText = (300 * currentMultiplier).toLocaleString('tr-TR') + ',00';
         }
     </script>
 </body>
