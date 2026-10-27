@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AARON Services & Network | Discord & FiveM Çözümleri</title>
+    <!-- Sekme İkonu (Favicon) -->
+    <link rel="icon" type="image/png" href="Neon A Monogram ve AARON Logosu.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -13,9 +15,8 @@
         header { width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; align-items: center; justify-content: space-between; }
         .logo-box { display: flex; align-items: center; gap: 12px; }
         
-        /* Yeni Logo / Sembol Stili */
-        .logo-img-wrapper { width: 48px; height: 48px; border-radius: 12px; background: #151b28; border: 1px solid rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(56, 189, 248, 0.25); overflow: hidden; }
-        .logo-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        /* Sol üstteki şık Neon 'A' Sembol Kutusu */
+        .logo-icon-box { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #151b28, #1c2436); border: 1px solid rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(56, 189, 248, 0.25); color: #38bdf8; font-size: 22px; font-weight: 800; }
 
         .brand-title { font-size: 20px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
         .brand-title span { color: #38bdf8; }
@@ -57,7 +58,7 @@
         .btn-add { width: 100%; padding: 12px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s ease; }
         .btn-add:hover { background: #38bdf8; color: #0d111a; }
 
-        /* DÜZELTİLEN YAPIMCI EKİBİ GRID YAPISI */
+        /* YAPIMCI EKİBİ GRID YAPISI */
         .team-section { width: 100%; max-width: 1200px; margin: 40px auto 20px auto; padding: 0 24px; }
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .team-card { background: #151b28; border: 1px solid #1c2436; border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 16px; }
@@ -79,9 +80,8 @@
     <!-- HEADER -->
     <header>
         <div class="logo-box">
-            <div class="logo-img-wrapper">
-                <!-- Yeni Sembol/Logo Görseli -->
-                <img src="Neon A Monogram ve AARON Logosu.png" alt="AARON Logo">
+            <div class="logo-icon-box">
+                A
             </div>
             <div>
                 <div class="brand-title">AARON <span>Services</span></div>
@@ -223,14 +223,22 @@
         </div>
     </div>
 
-    <!-- YAPIMCI EKİBİ (Düzeltilmiş Grid Yapısı) -->
+    <!-- YAPIMCI EKİBİ -->
     <div class="team-section">
         <div class="category-header"><i class="fa-solid fa-code"></i> Yapımcı Ekibi</div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">E</div>
+                <div class="team-info">
+                    <h4>Emirhan</h4>
+                    <p>Lead Developer & Founder</p>
+                </div>
+            </div>
             <div class="team-card">
                 <div class="team-avatar">A</div>
                 <div class="team-info">
                     <h4>Aaron</h4>
-                    <p>Lead Developer & Founder</p>
+                    <p>Lead Developer & Architect</p>
                 </div>
             </div>
         </div>
