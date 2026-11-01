@@ -17,7 +17,6 @@
         header { width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; align-items: center; justify-content: space-between; }
         .logo-box { display: flex; align-items: center; gap: 12px; }
         
-        /* Sol üstteki logo görsel alanı */
         .logo-icon-box { width: 44px; height: 44px; border-radius: 12px; background: #151b28; border: 1px solid rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(56, 189, 248, 0.25); overflow: hidden; }
         .logo-icon-box img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -105,7 +104,7 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <h1 class="hero-title">AARON <span>Services & Network</span></h1>
-        <p class="hero-desc">Sunucunuz ve FiveM oyun altyapınız için en kaliteli bot sistemleri ve profesyonel çözümler.</p>
+        <p class="hero-desc">Sunucunuz ve FiveM oyun altyapınız için en kaliteli bot sistemleri, scriptler ve profesyonel çözümler.</p>
         
         <!-- DÖNEM SEÇİCİ TABLAR -->
         <div class="tabs-wrapper">
@@ -137,7 +136,7 @@
                         <li><i class="fa-solid fa-check"></i> Gelişmiş Ceza ve Log sistemleri</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('Moderasyon', 550)" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Moderasyon (Bot)', 550)" class="btn-add">Sepete Ekle</button>
             </div>
 
             <!-- Guard -->
@@ -152,7 +151,7 @@
                         <li><i class="fa-solid fa-check"></i> Backup sistemleri</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('Guard', 450)" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Guard (Bot)', 450)" class="btn-add">Sepete Ekle</button>
             </div>
 
             <!-- Ticket -->
@@ -168,7 +167,7 @@
                         <li><i class="fa-solid fa-check"></i> Log Sistemi</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('Ticket', 300)" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Ticket (Bot)', 300)" class="btn-add">Sepete Ekle</button>
             </div>
 
             <!-- Ekip Sistemi -->
@@ -184,7 +183,7 @@
                         <li><i class="fa-solid fa-check"></i> Gelişmiş Loglar</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('Ekip Sistemi', 350)" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Ekip Sistemi (Bot)', 350)" class="btn-add">Sepete Ekle</button>
             </div>
 
             <!-- Mesai Sistemi -->
@@ -199,17 +198,17 @@
                         <li><i class="fa-solid fa-check"></i> Gelişmiş Loglar</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('Mesai Sistemi', 350)" class="btn-add">Sepete Ekle</button>
+                <button onclick="addToCart('Mesai Sistemi (Bot)', 350)" class="btn-add">Sepete Ekle</button>
             </div>
         </div>
     </div>
 
-    <!-- KATEGORİ 2: FIVEM ÖZEL ENTEGRASYONLAR -->
+    <!-- KATEGORİ 2: FIVEM SCRİPTLERİ & ÖZEL ENTEGRASYONLAR -->
     <div class="category-container">
-        <div class="category-header"><i class="fa-solid fa-gamepad"></i> FiveM Sunucu Entegrasyonları</div>
+        <div class="category-header"><i class="fa-solid fa-gamepad"></i> FiveM Scriptleri & Entegrasyonlar</div>
         <div class="pricing-grid">
-            <!-- FiveM Özel Bot -->
-            <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
+            <!-- FiveM Özel Bot & Yönetim -->
+            <div class="price-card">
                 <div>
                     <div class="card-title">FiveM Özel Bot & Yönetim</div>
                     <div class="card-desc">Oyun içi ve Discord köprüsü, sunucu yönetimi entegrasyonu</div>
@@ -221,7 +220,23 @@
                         <li><i class="fa-solid fa-check"></i> Otomatik Rol & Yetki Senkronizasyonu</li>
                     </ul>
                 </div>
-                <button onclick="addToCart('FiveM Özel Bot & Yönetim', 650)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
+                <button onclick="addToCart('FiveM Özel Bot & Yönetim', 650)" class="btn-add">Sepete Ekle</button>
+            </div>
+
+            <!-- FiveM Özel Script Geliştirme / Paket -->
+            <div class="price-card" style="border-color: rgba(56, 189, 248, 0.4);">
+                <div>
+                    <div class="card-title">Özel FiveM Script / Sistem</div>
+                    <div class="card-desc">Sunucunuza özel optimize, bugsuz ve modern script kodlama</div>
+                    <div class="price-tag"><span id="price-script">750,00</span> <span class="price-period" id="period-script">TL / başl.</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> ESX / QB-Core / Qbox Tam Uyum</li>
+                        <li><i class="fa-solid fa-check"></i> Düşük Resmon Değeri (0.00ms Optimize)</li>
+                        <li><i class="fa-solid fa-check"></i> Modern UI & Web Interface Desteği</li>
+                        <li><i class="fa-solid fa-check"></i> İsteğe Özel Fonksiyon ve Veritabanı Entegrasyonu</li>
+                    </ul>
+                </div>
+                <button onclick="addToCart('Özel FiveM Script / Sistem', 750)" class="btn-add" style="background: #38bdf8; color: #0d111a;">Sepete Ekle</button>
             </div>
         </div>
     </div>
@@ -339,6 +354,7 @@
             updatePrice('price-team', 350);
             updatePrice('price-shift', 350);
             updatePrice('price-fivem', 650);
+            updatePrice('price-script', 750);
 
             document.getElementById('period-mod').innerText = periodText;
             document.getElementById('period-guard').innerText = periodText;
@@ -346,6 +362,7 @@
             document.getElementById('period-team').innerText = periodText;
             document.getElementById('period-shift').innerText = periodText;
             document.getElementById('period-fivem').innerText = periodText;
+            document.getElementById('period-script').innerText = periodText;
         }
     </script>
 </body>
